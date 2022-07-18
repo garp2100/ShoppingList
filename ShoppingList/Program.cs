@@ -63,12 +63,9 @@ Console.WriteLine("Thanks for your order!");
 Console.WriteLine("Here's what you got:");
 foreach (string i in shoppingList)
 {
-    if (menuItems.ContainsKey(i))
+    if (menuItems.ContainsKey(i)) 
     {
-        decimal sum = 0;
         Console.WriteLine(i + " " + menuItems[i]);
-        sum += menuItems[i];
-        Console.WriteLine(sum / menuItems[i]);
     }
 }
 
