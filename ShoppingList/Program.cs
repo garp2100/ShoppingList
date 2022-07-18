@@ -1,5 +1,8 @@
-﻿string userInput;
-bool runAgain = true;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+
+string userInput;
 bool wantToContinue = true;
 List <string> shoppingList = new ();
 
@@ -51,16 +54,21 @@ while (wantToContinue)
         if (restartValue == "y")
             continue;
         else
-            break;
+            Console.WriteLine("Goodbye!");
+            Environment.Exit(0);
     } 
 }
 
-
-foreach (string i in shoppingList.ToList())
+Console.WriteLine("Thanks for your order!");
+Console.WriteLine("Here's what you got:");
+foreach (string i in shoppingList)
 {
     if (menuItems.ContainsKey(i))
     {
-        var newlist = menuItems.Where(x => shoppingList.Contains(x.Key)).Select(y => y.Value).ToList();
-        Console.WriteLine(menuItems);
+        decimal sum = 0;
+        Console.WriteLine(i + " " + menuItems[i]);
+        sum += menuItems[i];
+        Console.WriteLine(sum / menuItems[i]);
     }
 }
+
