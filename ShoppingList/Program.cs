@@ -15,7 +15,7 @@ Dictionary<string, decimal> menuItems = new()
     { "milk", 3.20m },
 };
 
-#region Display list to user
+#region Display menu to user
 Console.WriteLine("Welcome to Tropical Market\n");
 Console.WriteLine("==========================\n");
 
@@ -60,7 +60,7 @@ foreach (string i in shoppingList.ToList())
 {
     if (menuItems.ContainsKey(i))
     {
-        shoppingList.Add(i);
+        var newlist = menuItems.Where(x => shoppingList.Contains(x.Key)).Select(y => y.Value).ToList();
+        Console.WriteLine(menuItems);
     }
-    Console.WriteLine("here's your list: " + i);
 }
